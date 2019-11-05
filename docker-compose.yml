@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    image: golang:1.13
+    hostname: echo_go
+    container_name: echo_go
+    volumes:
+      - ./:/go/src/github.com/bushiyama/echo_go
+    working_dir: /go/src/github.com/bushiyama/echo_go
+    environment:
+      - GOPATH=/go
+    command: >
+      bash -c "
+      mkdir -p /var/log/api_app
+      && go get github.com/codegangsta/gin
+      && gin -b echo_go -x vendor -i run main.go"
+    ports:
+      - "8080:8080"
