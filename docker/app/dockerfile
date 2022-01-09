@@ -1,0 +1,5 @@
+FROM golang:1.17-bullseye
+
+RUN go install github.com/cosmtrek/air@v1.27.8
+
+CMD ["air"]

@@ -1,4 +1,6 @@
 # echo_go
 
-- $ docker-compose up
-- Access “http://localhost:8080/?Dev=hello” in the browser.
+```bash
+$ docker-compose up -d
+$ curl --GET -d hoge=fuga localhost:8080
+```
